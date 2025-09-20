@@ -2,7 +2,7 @@
   "name": "variablenamecorrector",
   "displayName": "VariableNameCorrector",
   "description": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.104.0"
   },
@@ -20,6 +20,10 @@
       {
         "command": "variablenamecorrector.fixLiteralName",
         "title": "상수 정상화"
+      },
+      {
+        "command": "variablenamecorrector.addAbbr",
+        "title": "약어 추가"
       }
     ],
     "menus": {

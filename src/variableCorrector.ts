@@ -1,12 +1,14 @@
 import { abbreviationDictionary } from "./abbreviationDictionary";
 
-export function divineWords(variableName: string) {
+export function divineWords(variableName: string, allAbbr: Set<string> = new Set([])) {
     const words: string[] = [];
+    
+
     // 1. kebab → underscore
     let normalized = variableName.replace(/-/g, "_");
 
     // 2. 약어 먼저 분리 → XXX_HTTP_XXX
-    for (const abbr of abbreviationDictionary) {
+    for (const abbr of allAbbr) {
         // 전부 대문자로만 일치할 때
         const regex = new RegExp(abbr, "g");
         normalized = normalized.replace(regex, `_${abbr}_`);
@@ -20,7 +22,7 @@ export function divineWords(variableName: string) {
     
 
     for (const part of parts) {
-        if (abbreviationDictionary.has(part)) {
+        if (allAbbr.has(part)) {
             words.push(part.toLowerCase());
             continue;
         }
