@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
-import { divineWords, toSnakeCase } from './variableCorrector';
 
-export async function fixName() {
+export async function fixName(func: (oldName: string, languageId: string) => string) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		return;
@@ -31,11 +30,8 @@ export async function fixName() {
 	    endOffset = fullName.length;
 	}
 
-	const divined = divineWords(selectedText);
-
-	const newSelected = toSnakeCase(divined);
-
-
+	const newSelected = func(selectedText, document.languageId);
+	
 	const newName = fullName.slice(0, startOffset) + newSelected + fullName.slice(endOffset);
 
 	const references = await vscode.commands.executeCommand<vscode.Location[]>(

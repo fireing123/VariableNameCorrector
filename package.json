@@ -16,12 +16,21 @@
       {
         "command": "variablenamecorrector.fixName",
         "title": "변수 정상화"
+      },
+      {
+        "command": "variablenamecorrector.fixLiteralName",
+        "title": "상수 정상화"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "command": "variablenamecorrector.fixName",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        },
+        {
+          "command": "variablenamecorrector.fixLiteralName",
           "when": "editorTextFocus",
           "group": "navigation"
         }
