@@ -1,8 +1,13 @@
 {
   "name": "variablenamecorrector",
-  "displayName": "VariableNameCorrector",
+  "publisher": "fireing123",
+  "displayName": "Variable Name Corrector",
   "description": "",
-  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireing123/VariableNameCorrector.git"
+  },
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.104.0"
   },
@@ -47,7 +52,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "npm run compile && vscode-test"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
